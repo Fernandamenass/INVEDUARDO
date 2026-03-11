@@ -35,20 +35,24 @@ function AdminPanel() {
     setError('');
     
     try {
+      console.log('🔍 Cargando datos de invitados...');
       const { data, error: fetchError } = await getAllGuestsWithCompanions();
       
+      console.log('📊 Respuesta de Supabase:', { data, error: fetchError });
+      
       if (fetchError) {
-        setError('Error al cargar los datos. Por favor, intenta nuevamente.');
-        console.error('Error fetching guests:', fetchError);
+        setError(`Error al cargar los datos: ${fetchError.message}`);
+        console.error('❌ Error fetching guests:', fetchError);
         setLoading(false);
         return;
       }
       
+      console.log(`✅ Invitados cargados: ${data?.length || 0}`);
       setGuests(data || []);
       setLoading(false);
     } catch (err) {
-      setError('Error al cargar los datos. Por favor, intenta nuevamente.');
-      console.error('Error loading guests:', err);
+      setError(`Error al cargar los datos: ${err.message}`);
+      console.error('❌ Error loading guests:', err);
       setLoading(false);
     }
   };
