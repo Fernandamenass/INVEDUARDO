@@ -24,14 +24,42 @@ function App() {
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center',
-            background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
-            color: 'white',
+            background: 'linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #0f172a 100%)',
+            color: '#d4af37',
             textAlign: 'center',
-            padding: '20px'
+            padding: '40px',
+            fontFamily: '"Playfair Display", serif'
           }}>
-            <div>
-              <h1>Sistema de Invitaciones de Graduación</h1>
-              <p>Por favor, utiliza el enlace único que recibiste en tu invitación.</p>
+            <div style={{
+              maxWidth: '600px',
+              padding: '60px 40px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '2px solid #d4af37',
+              borderRadius: '8px',
+              boxShadow: '0 8px 32px rgba(212, 175, 55, 0.2)'
+            }}>
+              <h1 style={{ 
+                fontSize: '2.5rem', 
+                marginBottom: '30px',
+                fontWeight: '700',
+                letterSpacing: '2px'
+              }}>
+                Invitación a mi Graduación
+              </h1>
+              <div style={{
+                width: '80px',
+                height: '2px',
+                background: '#d4af37',
+                margin: '0 auto 30px'
+              }}></div>
+              <p style={{ 
+                fontSize: '1.2rem',
+                lineHeight: '1.8',
+                color: '#e5e7eb',
+                fontFamily: '"Georgia", serif'
+              }}>
+                Por favor, acceda mediante el enlace único que recibió en su invitación personal.
+              </p>
             </div>
           </div>
         } />

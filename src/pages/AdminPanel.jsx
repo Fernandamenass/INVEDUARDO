@@ -113,7 +113,7 @@ function AdminPanel() {
     <div className="admin-panel">
       <div className="admin-container">
         <div className="admin-header">
-          <h1>Panel Administrativo</h1>
+          <h1>Panel Administrativo - Invitación a mi Graduación</h1>
           <div className="decorative-line"></div>
           <button 
             className="export-button" 

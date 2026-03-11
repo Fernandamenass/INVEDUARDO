@@ -134,16 +134,15 @@ function InvitationPage() {
     <div className="invitation-page">
       <div className="invitation-card">
         <div className="invitation-header">
-          <h1>Invitación a la Graduación</h1>
+          <h1>Invitación a mi Graduación</h1>
           <div className="decorative-line"></div>
         </div>
         
         <div className="invitation-body">
-          <p className="greeting">Estimado/a</p>
           <h2 className="guest-name">{guest.name}</h2>
           
           <p className="invitation-text">
-            Nos complace invitarte a celebrar la graduación de Eduardo.
+            Nos complace invitarte a celebrar mi graduación.
           </p>
           
           <div className="companion-info">
