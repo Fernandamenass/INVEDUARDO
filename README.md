@@ -59,6 +59,27 @@ npm run dev
 
 La aplicación estará disponible en `http://localhost:5173`
 
+## Despliegue en Producción
+
+### Variables de Entorno Requeridas
+
+Para desplegar en producción (Vercel, Netlify, u otra plataforma), configura las siguientes variables de entorno:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `VITE_SUPABASE_URL` | URL de tu proyecto Supabase | `https://xxxxx.supabase.co` |
+| `VITE_SUPABASE_ANON_KEY` | Clave pública anon de Supabase | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` |
+
+**Importante:** Estas variables deben configurarse en tu plataforma de hosting (no en el código fuente).
+
+### Build para Producción
+
+```bash
+npm run build
+```
+
+Los archivos optimizados se generarán en el directorio `dist/`.
+
 ## Estructura del Proyecto
 
 ```

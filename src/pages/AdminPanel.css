@@ -319,3 +319,84 @@
     padding: 15px;
   }
 }
+
+/* Invitation Link Section */
+.invitation-link-section {
+  margin: 15px 0;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #d4af37;
+}
+
+.unique-id-code {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #1e3a8a;
+  font-size: 0.9rem;
+  border: 1px solid #d1d5db;
+}
+
+.invitation-url-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  align-items: stretch;
+}
+
+.invitation-url-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+  color: #374151;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.invitation-url-input:hover {
+  border-color: #3b82f6;
+}
+
+.invitation-url-input:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  background: white;
+}
+
+.copy-url-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.copy-url-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
+}
+
+.copy-url-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .invitation-url-container {
+    flex-direction: column;
+  }
+  
+  .copy-url-btn {
+    width: 100%;
+  }
+}

@@ -166,6 +166,33 @@ function AdminPanel() {
                       <strong>Límite de acompañantes:</strong> {guest.companion_limit}
                     </p>
                     
+                    <div className="invitation-link-section">
+                      <p className="guest-info">
+                        <strong>ID único:</strong> <code className="unique-id-code">{guest.unique_id}</code>
+                      </p>
+                      <p className="guest-info">
+                        <strong>URL de invitación:</strong>
+                      </p>
+                      <div className="invitation-url-container">
+                        <input 
+                          type="text" 
+                          readOnly 
+                          value={`${window.location.origin}/invitation/${guest.unique_id}`}
+                          className="invitation-url-input"
+                          onClick={(e) => e.target.select()}
+                        />
+                        <button 
+                          className="copy-url-btn"
+                          onClick={() => {
+                            navigator.clipboard.writeText(`${window.location.origin}/invitation/${guest.unique_id}`);
+                            alert('URL copiada al portapapeles');
+                          }}
+                        >
+                          Copiar
+                        </button>
+                      </div>
+                    </div>
+                    
                     {guest.confirmed && guest.companions && guest.companions.length > 0 && (
                       <div className="companions-list">
                         <strong>Acompañantes:</strong>
