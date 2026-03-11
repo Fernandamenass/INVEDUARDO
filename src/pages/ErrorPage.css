@@ -1,0 +1,70 @@
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  padding: 20px;
+}
+
+.error-content {
+  text-align: center;
+  color: white;
+  max-width: 600px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: bold;
+  margin: 0;
+  color: #fbbf24;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.error-title {
+  font-size: 32px;
+  margin: 20px 0;
+  color: white;
+}
+
+.error-message {
+  font-size: 18px;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.error-hint {
+  font-size: 16px;
+  margin: 20px 0;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+.error-button {
+  margin-top: 30px;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e3a8a;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.error-button:hover {
+  background: #fbbf24;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.error-button:active {
+  transform: translateY(0);
+}
