@@ -56,11 +56,11 @@
 }
 
 .invitation-header::before {
-  left: 10%;
+  left: 0;
 }
 
 .invitation-header::after {
-  right: 10%;
+  right: 0;
 }
 
 .invitation-header h1 {
@@ -122,6 +122,18 @@
   font-size: 1.15rem;
   line-height: 1.8;
   color: #374151;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-weight: 500;
+}
+
+.degree-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1e3a8a;
+  font-weight: 700;
   margin-bottom: 30px;
   text-align: center;
   font-family: 'Georgia', serif;
