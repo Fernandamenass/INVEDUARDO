@@ -145,11 +145,63 @@ function InvitationPage() {
             Nos complace invitarte a celebrar mi graduación.
           </p>
           
-          <div className="companion-info">
-            <p>
-              Puedes traer hasta <strong>{guest.companion_limit}</strong> acompañante{guest.companion_limit !== 1 ? 's' : ''}.
-            </p>
+          <div className="event-details">
+            <div className="detail-item">
+              <span className="detail-icon">📅</span>
+              <div className="detail-content">
+                <strong>Fecha</strong>
+                <p>26 de Junio, 2026</p>
+              </div>
+            </div>
+            
+            <div className="detail-item">
+              <span className="detail-icon">🕒</span>
+              <div className="detail-content">
+                <strong>Hora</strong>
+                <p>3:30 PM - 8:30 PM</p>
+              </div>
+            </div>
+            
+            <div className="detail-item">
+              <span className="detail-icon">📍</span>
+              <div className="detail-content">
+                <strong>Lugar</strong>
+                <p>Annea Eventos</p>
+              </div>
+            </div>
           </div>
+
+          <div className="map-section">
+            <h3>Ubicación</h3>
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Annea+Eventos&zoom=15"
+                width="100%"
+                height="300"
+                style={{ border: 0, borderRadius: '8px' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación del evento"
+              ></iframe>
+            </div>
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Annea+Eventos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="directions-link"
+            >
+              Ver en Google Maps →
+            </a>
+          </div>
+          
+          {guest.companion_limit > 0 && (
+            <div className="companion-info">
+              <p>
+                Puedes traer hasta <strong>{guest.companion_limit}</strong> acompañante{guest.companion_limit !== 1 ? 's' : ''}.
+              </p>
+            </div>
+          )}
           
           <form onSubmit={handleSubmit} className="confirmation-form">
             <h3>Confirmar Asistencia</h3>
