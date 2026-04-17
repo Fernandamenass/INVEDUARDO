@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getGuestByUniqueId, updateGuestConfirmation, addCompanions } from '../services/supabaseClient';
+import { getGuestByUniqueId, updateGuestConfirmation, updateGuestDeclined, addCompanions } from '../services/supabaseClient';
 import './InvitationPage.css';
 
 function InvitationPage() {
@@ -11,6 +11,7 @@ function InvitationPage() {
   const [companions, setCompanions] = useState(['']);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [declined, setDeclined] = useState(false);
   const [validationError, setValidationError] = useState('');
 
   useEffect(() => {
@@ -61,6 +62,19 @@ function InvitationPage() {
     const newCompanions = companions.filter((_, i) => i !== index);
     setCompanions(newCompanions.length > 0 ? newCompanions : ['']);
     setValidationError('');
+  }
+
+  async function handleDecline() {
+    try {
+      setSubmitting(true);
+      const { error } = await updateGuestDeclined(guest.id);
+      if (error) throw error;
+      setDeclined(true);
+    } catch (err) {
+      setValidationError('Error al guardar. Por favor, intenta nuevamente.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   async function handleSubmit(e) {
@@ -125,6 +139,18 @@ function InvitationPage() {
           <h2>¡Confirmación Exitosa!</h2>
           <p>Gracias por confirmar tu asistencia, {guest.name}.</p>
           <p>¡Te esperamos en la graduación!</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (declined) {
+    return (
+      <div className="invitation-page">
+        <div className="invitation-card declined-card">
+          <h2>Respuesta Registrada</h2>
+          <p>Lamentamos que no puedas acompañarnos, {guest.name}.</p>
+          <p>¡Gracias por avisarnos!</p>
         </div>
       </div>
     );
@@ -258,6 +284,15 @@ function InvitationPage() {
               className="submit-btn"
             >
               {submitting ? 'Enviando...' : 'Confirmar Asistencia'}
+            </button>
+
+            <button
+              type="button"
+              disabled={submitting}
+              onClick={handleDecline}
+              className="decline-btn"
+            >
+              {submitting ? 'Enviando...' : 'No podré asistir'}
             </button>
           </form>
         </div>

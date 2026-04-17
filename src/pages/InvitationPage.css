@@ -506,3 +506,52 @@
     height: 250px !important;
   }
 }
+
+/* Decline button */
+.decline-btn {
+  width: 100%;
+  background: transparent;
+  color: #6b7280;
+  border: 2px solid #d1d5db;
+  border-radius: 0;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 12px;
+  letter-spacing: 1px;
+  font-family: 'Georgia', serif;
+}
+
+.decline-btn:hover:not(:disabled) {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #dc2626;
+}
+
+.decline-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Declined card */
+.declined-card {
+  text-align: center;
+}
+
+.declined-card h2 {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.declined-card p {
+  color: #374151;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.8;
+  font-family: 'Georgia', serif;
+}

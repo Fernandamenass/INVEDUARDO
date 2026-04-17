@@ -179,6 +179,19 @@
   background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
 }
 
+.guest-card.declined {
+  border-left-color: #dc2626;
+  background: linear-gradient(135deg, #fff1f2 0%, #fee2e2 100%);
+}
+
+.total-card-declined {
+  border-top: 4px solid #dc2626 !important;
+}
+
+.total-card-declined .total-value {
+  color: #dc2626 !important;
+}
+
 .guest-header {
   display: flex;
   justify-content: space-between;
@@ -211,6 +224,11 @@
 
 .status-pending {
   background: #f59e0b;
+  color: white;
+}
+
+.status-declined {
+  background: #dc2626;
   color: white;
 }
 

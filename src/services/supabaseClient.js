@@ -62,7 +62,23 @@ export async function getGuestWithCompanions(guestId) {
 export async function updateGuestConfirmation(guestId, confirmed = true) {
   const { data, error } = await supabase
     .from('guests')
-    .update({ confirmed })
+    .update({ confirmed, declined: false })
+    .eq('id', guestId)
+    .select()
+    .single();
+
+  return { data, error };
+}
+
+/**
+ * Update guest declined status
+ * @param {string} guestId - The guest's UUID
+ * @returns {Promise<{data: object|null, error: object|null}>}
+ */
+export async function updateGuestDeclined(guestId) {
+  const { data, error } = await supabase
+    .from('guests')
+    .update({ declined: true, confirmed: false })
     .eq('id', guestId)
     .select()
     .single();

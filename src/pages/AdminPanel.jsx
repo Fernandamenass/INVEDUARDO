@@ -89,7 +89,9 @@ function AdminPanel() {
 
   // Calculate totals
   const confirmedGuests = guests.filter(guest => guest.confirmed);
+  const declinedGuests = guests.filter(guest => guest.declined);
   const totalConfirmedGuests = confirmedGuests.length;
+  const totalDeclinedGuests = declinedGuests.length;
   
   const totalCompanions = confirmedGuests.reduce((sum, guest) => {
     return sum + (guest.companions?.length || 0);
@@ -144,6 +146,10 @@ function AdminPanel() {
             <div className="total-label">Total Asistentes</div>
             <div className="total-value">{totalAttendees}</div>
           </div>
+          <div className="total-card total-card-declined">
+            <div className="total-label">No Asistirán</div>
+            <div className="total-value">{totalDeclinedGuests}</div>
+          </div>
         </div>
 
         {/* Guests List */}
@@ -157,11 +163,11 @@ function AdminPanel() {
           ) : (
             <div className="guests-list">
               {guests.map((guest) => (
-                <div key={guest.id} className={`guest-card ${guest.confirmed ? 'confirmed' : 'pending'}`}>
+                <div key={guest.id} className={`guest-card ${guest.confirmed ? 'confirmed' : guest.declined ? 'declined' : 'pending'}`}>
                   <div className="guest-header">
                     <h3 className="guest-name">{guest.name}</h3>
-                    <span className={`status-badge ${guest.confirmed ? 'status-confirmed' : 'status-pending'}`}>
-                      {guest.confirmed ? 'Confirmado' : 'Pendiente'}
+                    <span className={`status-badge ${guest.confirmed ? 'status-confirmed' : guest.declined ? 'status-declined' : 'status-pending'}`}>
+                      {guest.confirmed ? 'Confirmado' : guest.declined ? 'No asistirá' : 'Pendiente'}
                     </span>
                   </div>
                   
